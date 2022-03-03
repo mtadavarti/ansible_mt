@@ -1,0 +1,10 @@
+- hosts: localhost
+  tasks:
+    - pip:
+        name: boto
+    - name: Creating snapshot for an EC2 instance
+      ec2_snapshot:
+        region: us-east-1
+        instance_id: i-055800328dc18a48f
+        device_name: /dev/xvda
+        
