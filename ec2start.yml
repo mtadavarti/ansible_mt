@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  tasks:
+    - pip:
+        name: boto
+    - name: Ec2 instance creation
+      ec2:
+        key_name: instance1
+        instance_type: t2.micro
+        region: us-east-1
+        image: ami-0c293f3f676ec4f90
+        wait: yes
+        count: 1
+        vpc_subnet_id: subnet-0828acb19ddf510c3
+        assign_public_ip: yes
+
